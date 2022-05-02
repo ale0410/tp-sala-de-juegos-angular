@@ -1,0 +1,9 @@
+.container-nav{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.nav-link.active{
+    color: #1abc9c !important;
+    font-weight: 700;
+}

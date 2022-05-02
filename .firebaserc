@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "tp-sala-de-juegos-2022": {
+      "hosting": {
+        "tp-sala-de-juegos": [
+          "tp-sala-de-juegos-2022"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "tp-sala-de-juegos-2022"
+  }
+}
