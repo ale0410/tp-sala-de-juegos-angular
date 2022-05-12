@@ -1,1 +1,58 @@
-<p>resultado works!</p>
+<div class="container">
+    <div class="container-result">
+    </div>
+  
+    <!-- Notificación ganó -->
+    <div class="d-flex align-items-center justify-content-center container-card" *ngIf="flagGpIniciar && flagG">
+      <div class="card" style="width: 25rem;">
+        <div class="card-header d-flex justify-content-center">
+          <img src="../../../assets/icons/comprobado.png" alt="Ok">
+          <h3 class="card-title text-center text-uppercase ml-5">Ganó</h3>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" (click)="flagGpIniciar = false">Continuar</button>          
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Notificación perdió -->
+    <div class="d-flex align-items-center justify-content-center container-card" *ngIf="flagGpIniciar && !flagG">
+      <div class="card" style="width: 25rem;">
+        <div class="card-header d-flex justify-content-center">
+          <img src="../../../assets/icons/cancelar.png" alt="No">
+          <h3 class="card-title text-center text-uppercase ml-5">Perdió</h3>
+        </div>
+        <div class="card-body">
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" (click)="flagGpIniciar = false">Continuar</button>          
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Puntos -->
+    <div class="d-flex align-items-center justify-content-center container-card" *ngIf="!flagGpIniciar">
+      <div class="card" style="width: 25rem;">
+        <div class="card-body">
+          <h5 class="card-title text-center text-uppercase">Resultado</h5>
+          <p class="card-text">Jugador: <span>{{jugador.user}}</span></p>
+          <p class="card-text">Puntos: <span>{{jugador.puntosActuales}}</span></p>
+           <p class="card-text" [ngSwitch]="nombreJuego">Puntaje histórico: 
+             <span *ngSwitchCase="'Ahorcado'">{{jugador.ahorcado}}</span> <!--Acá va el puntaje histórico del juego -->
+             <span *ngSwitchCase="'Hit Carpincho'">{{jugador.hitCarpincho}}</span>
+             <span *ngSwitchCase="'Mayor o menor'">{{jugador.mayorMenor}}</span>
+             <span *ngSwitchCase="'Preguntados'">{{jugador.preguntados}}</span>
+             <!-- <span *ngSwitchCase="'Hit Carpincho'">{{jugador.hitCarpincho}}</span> -->
+            </p>
+          <p class="card-text">Puntaje total: <span>{{jugador.puntosTotales}}</span></p>
+          <div class="d-flex justify-content-around">
+            <button class="btn btn-primary" (click)="enviarEvento()">Volver a jugar</button>
+            <button class="btn btn-primary" [routerLink]="['']">Salir</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

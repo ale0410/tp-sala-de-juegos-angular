@@ -1,1 +1,31 @@
-<p>listado-puntajes works!</p>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3">Puntajes</span>
+            <table class="table table-striped mt-5">
+              <!-- <table *ngIf="empleados.length > 0" class="table table-striped mt-5"></table> -->
+                <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Ahorcado</th>
+                    <th>Mayor o menor</th>
+                    <th>Preguntados</th>
+                    <th>Hit Carpincho</th>
+                    <th>Puntos totales</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let jugador of listadoPuntajes">
+                    <td>{{jugador.user}}</td>
+                    <td>{{jugador.ahorcado}}</td>
+                    <td>{{jugador.mayorMenor}}</td>
+                    <td>{{jugador.preguntados}}</td>
+                    <td>{{jugador.hitCarpincho}}</td>
+                    <td>{{jugador.puntosTotales}}</td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+  </div>

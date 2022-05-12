@@ -1,0 +1,28 @@
+.container{
+	margin-top: 1rem;
+}
+
+.grid {
+	width: 40%;
+    margin-left: 30% !important;
+    height: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cuadrado, .carpincho {
+	height: 100px;
+	width: 100px;
+	border: solid black 1px;
+	border-radius: 3px;
+	background-color: aquamarine;
+}
+
+.carpincho {
+	background-image: url("../../../assets/imagenes/carpincho.jpg");
+	background-size: cover;
+}
+
+.carpincho:hover{
+	cursor:pointer;
+}

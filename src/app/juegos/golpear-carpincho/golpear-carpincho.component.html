@@ -1,1 +1,37 @@
-<p>golpear-carpincho works!</p>
+<app-iniciar-juego *ngIf="!inicio" 
+                    [nombre]="nombreJuego" 
+                    (iniciarJuegoEvent)="iniciarJuego()">
+</app-iniciar-juego>
+
+<div class="container text-center">
+  <h2 class="text-secondary text-uppercase mb-0">Hit Carpincho</h2>
+  <!-- Icon Divider-->
+  <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon"><i class="fa fa-bullseye"></i></div>
+      <div class="divider-custom-line"></div>
+  </div>
+  
+  <div>
+    <h3>TIEMPO RESTANTE: <span [ngStyle]="{'color':tiempoRestante <= 5 ? 'red' : 'black' }">{{tiempoRestante}}</span></h3>
+    
+  </div>
+
+  <div class="grid justify-content-center col-3 m-3">
+    <div class="" *ngFor="let cuadrado of lista" [ngClass]="cuadrado == 'carpincho'?'carpincho':'cuadrado'"
+    (click)="golpeCarpincho(cuadrado)"></div>
+  </div>
+
+  <div class="text-cente mt-4">
+    <h3>PUNTOS: {{puntosActuales}}</h3>
+  </div>
+
+</div>
+
+<app-resultado *ngIf="resultadocomp"
+                [nombre]="nombreJuego"  
+                [flagGp]="ganoPerdio" 
+                [flagGano]="gano"
+                [jugadorResult]="jugador" 
+                (reiniciarJuegoEvent)="reiniciarJuego()">
+</app-resultado>

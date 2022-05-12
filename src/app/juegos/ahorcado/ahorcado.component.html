@@ -1,1 +1,38 @@
-<p>ahorcado works!</p>
+<app-iniciar-juego *ngIf="!inicio" 
+                    [nombre]="nombreJuego" 
+                    (iniciarJuegoEvent)="iniciarJuego()">
+</app-iniciar-juego>
+
+<!-- <div class="container-inicio d-flex justify-content-center align-items-center" *ngIf="!inicio">
+    <button class="btn btn-primary" (click)="iniciarJuego()">INICIAR JUEGO</button>
+</div> -->
+
+<main class="container-fluid ahorcado_main mt-6" >
+    <div class="row" id="app">
+        <div class="col-12 text-center ahorcado">
+            <h1 class="text-success">Ahorcado</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8 text-center">
+            <img class="imagen-ahorcado" [src]="imagePath()" alt="">
+        </div>
+        <div class="col-4">
+            <h3 class="displayed-word">Palabra: <br>{{displayWord()}}</h3>
+            <p class="h4 text-danger">Intentos restantes: {{intentosRestantes}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm" *ngFor="let letra of letras">
+            <button class="btn btn-success mt-4 btn-sm" [disabled]="letra.disabled" (click)="attemptWithLetter(letra)">{{letra.letra}}</button>
+        </div>
+    </div>
+</main>
+
+<app-resultado *ngIf="resultadocomp" 
+                [flagGp]="ganoPerdio"
+                [nombre]="nombreJuego"  
+                [flagGano]="gano"
+                [jugadorResult]="jugador" 
+                (reiniciarJuegoEvent)="reiniciarJuego()">
+</app-resultado>
